@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+
+    <style>
+        body{
+            background-color: rgb(255, 125, 125);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(var(--size, 2), 1fr);
+            grid-template-rows: repeat(var(--size, 2), 1fr);
+            width: 500px;
+            height: 500px;
+            gap: 5px;
+            margin: 50px auto;
+            }
+
+            .container div {
+            /* Colors will be added by JavaScript */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.1s;
+            }
+
+            .container div:hover {
+            transform: scale(0.95); /* Slight effect when hovering */
+            }
+    </style>
+</head>
+<body>
+
+  
+<div class="container"></div>
+</div>
+
+
+
+
+<script>
+let currentSize = 2;
+const container = document.querySelector('.container');
+
+function updateGrid(n) {
+  container.style.setProperty('--size', n);
+  container.innerHTML = ' ';
+
+  // 1. Generate a random base color (R, G, B)
+  const r = Math.floor(Math.random() * 200); // Max 200 to keep it from being too white
+  const g = Math.floor(Math.random() * 200);
+  const b = Math.floor(Math.random() * 200);
+  
+  const baseColor = `rgb(${r}, ${g}, ${b})`;
+  // 2. Create a "special" color that is slightly lighter
+  const specialColor = `rgb(${r + 30}, ${g + 30}, ${b + 30})`;
+
+  const totalBoxes = n * n;
+  const luckyNumber = Math.floor(Math.random() * totalBoxes) + 1;
+
+  for (let i = 1; i <= totalBoxes; i++) {
+    const box = document.createElement('div');
+    
+    // Set the standard color for all boxes
+    box.style.backgroundColor = baseColor;
+
+    if (i === luckyNumber) {
+      box.classList.add('special');
+      box.style.backgroundColor = specialColor; // Override with special color
+    }
+
+    box.addEventListener('click', function() {
+      if (this.classList.contains('special')) {
+        if (currentSize < 20) {
+          currentSize++;
+          updateGrid(currentSize);
+        } else {
+          alert("Winner! You mastered the 10x10!");
+          resetGame();
+        }
+      } else {
+        alert("GAME OVER!");
+        resetGame();
+      }
+    });
+
+    container.appendChild(box);
+  }
+}
+
+function resetGame() {
+  currentSize = 2;
+  updateGrid(currentSize);
+}
+
+updateGrid(2);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>job_application_form</title>
+  <style>
+    body {
+      background-color: antiquewhite;
+    }
+
+    fieldset {
+      margin-top: 30px;
+      /* width: 800px; */
+    }
+
+
+    .references_contect,
+    .preferences {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr;
+
+      grid-template-areas: "left middel right";
+
+    }
+
+    .Eduction,
+    .work_experience,
+    .language_known {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      grid-template-areas: "1 2 3 4";
+
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas: "left left" "right right";
+      width: 100%;
+
+      gap: 30px;
+    }
+
+    table,
+    td,
+    tr,
+    th {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .table_container,
+    .eduction_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .table_container th {
+      width: 200px;
+      border: 1px solid black;
+    }
+
+    .eduction_container th {
+      width: 200px;
+      border: 1px solid black;
+    }
+
+
+    .form-group {
+      margin-top: 8px;
+    }
+
+    p {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align: center;">Job_application_form</h1>
+  <form id="myFormId" action="/ task2.html" onsubmit="return error()">
+    <!-- basic information -->
+    <fieldset>
+      <legend>Basic detail:</legend>
+      <div class="container">
+        <!-- left -->
+        <div class="left">
+          <div class="form-group">
+            <!-- first name -->
+            <label for="fname">First Name:</label>
+            <input id="fname" name="fname" type="text">
+            <p id="efname"></p>
+          </div>
+          <div class="form-group">
+
+            <!-- designation -->
+            <label for="designation">designation:</label>
+            <input id="designation" name="designation" type="text">
+            <p id="edesignation"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- email -->
+            <label for="email">email:</label>
+            <input id="email" name="email" type="text">
+            <p id="eemail"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- phone number -->
+            <label for="phoneNumber">phoneNumber:</label>
+            <input id="phoneNumber" name="phoneNumber" type="text">
+            <p id="ephonenumber"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <input id="male" name="gender" value="male" type="radio"> <label for="male">male</label>
+            <input id="female" name="gender" value="female" type="radio"> <label for="female">female</label>
+            <!-- Error message paragraph -->
+            <p id="egender"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- Relation ship status -->
+            <label for="RelationShip">RelationShip status:</label>
+            <select name="RelationShip" id="RelationShip">
+              <option value="single">single</option>
+              <option value="Marride">Marride</option>
+
+            </select>
+
+          </div>
+          <div class="form-group">
+            <!-- date of birth -->
+            <label for="dob">date of birth:</label>
+            <input id="dob" name="dob" type="date">
+            <p id="edob"></p>
+
+          </div>
+
+        </div>
+        <!-- right -->
+        <div class="right">
+          <div class="form-group">
+            <!-- last name -->
+            <label for="lname">Last Name:</label>
+            <input id="lname" name="lname" type="text">
+            <p id="elname"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- address 1 -->
+            <label for="address1">Adderess 1:</label>
+            <input id="address1" name="address1" type="text">
+            <p id="eaddress1"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- address 2 -->
+            <label for="address2">Adderess 2:</label>
+            <input id="address2" name="address2" type="text">
+            <p id="eaddress2"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- city -->
+            <label for="city">City:</label>
+            <input id="city" name="city" type="text">
+            <p id="ecity"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- state -->
+            <label for="state">state:</label>
+            <select name="state" id="state">
+              <option value="gujarat" selected>Gujarat</option>
+              <option value="keral">keral</option>
+              <option value="himachal">himachal</option>
+              <option value="maharastra">maharastra</option>
+              <option value="UP">UP</option>
+              <option value="MP">MP</option>
+              <option value="J&K">J&K</option>
+
+            </select>
+            <p id="estate"></p>
+
+          </div>
+          <div class="form-group">
+            <!-- zip code -->
+            <label for="zip">ZIP code:</label>
+            <input id="zip" name="zip" type="text">
+            <p id="ezipcode"></p>
+
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+
+    <!-- Eduction detail -->
+    <fieldset>
+      <legend>Eduction detail:</legend>
+      <div class="Eduction">
+        <div class="1">
+          <div class="form-group">
+            <label for="course">Course:</label>
+            <input id="course" name="course" type="text">
+            <p id="e_course"></p>
+          </div>
+        </div>
+        <div class="2">
+          <div class="form-group">
+            <label for="Passing_Year">Passing_Year:</label>
+            <input id="Passing_Year" name="Passing_Year" type="text">
+            <p id="e_Passing_Year"></p>
+
+          </div>
+        </div>
+        <div class="3">
+          <div class="form-group">
+            <label for="Uni_Board">Uni/Board:</label>
+            <input id="Uni_Board" name="Uni_Board" type="text">
+            <p id="e_Uni_Board"></p>
+
+            <br>
+            <div class="form-group">
+
+              <input onclick="  add_eduction()" type="button" value="ADD">
+
+              <input onclick="remove_last_eduction()" type="button" value="Remove">
+            </div>
+          </div>
+        </div>
+        <div class="4">
+          <div class="form-group">
+            <label for="Result">Result:</label>
+            <input id="Result" name="Result" type="text">
+            <p id="e_Result"></p>
+
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+    <!-- table for eduction -->
+    <fieldset id="eduction_fieldset" style="display: none;">
+      <legend>Data of Eduction</legend>
+      <div class="eduction_container">
+
+      </div>
+    </fieldset>
+
+
+    <!-- work experience -->
+    <fieldset>
+      <legend>Work Experience</legend>
+      <div class="work_experience">
+        <div class="1">
+          <div class="form-group">
+            <label for="company_name">company_name:</label>
+            <input id="company_name" name="company_name" type="text">
+            <p id="e_company_name"> </p>
+
+          </div>
+
+        </div>
+        <div class="2">
+          <div class="form-group">
+            <label for="Work_designation">designation:</label>
+            <input id="Work_designation" name="Work_designation" type="text">
+            <p id="e_Work_designation"> </p>
+
+          </div>
+
+        </div>
+        <div class="3">
+          <div class="form-group">
+            <label for="from">From:</label>
+            <input id="from" name="from" type="date">
+            <p id="e_from"> </p>
+
+            <input onclick="  add()" type="button" value="ADD">
+
+            <input onclick="removeLastRow()" type="button" value="Remove">
+          </div>
+
+
+
+
+        </div>
+        <div class="4">
+          <div class="form-group">
+            <label for="to">To:</label>
+            <input id="to" name="to" type="date">
+            <p id="e_to"> </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- <input style="text-align: center;" type="submit"> -->
+    </fieldset>
+    <!-- table for  work experience -->
+    <fieldset id="fieldset" style="display: none;">
+      <legend>DATA:</legend>
+      <div class="table_container">
+
+      </div>
+    </fieldset>
+
+
+    <!-- language know -->
+    <!-- language known -->
+    <fieldset id="language_known">
+      <legend>Language Known</legend>
+
+      <!-- Row 1: Gujarati -->
+      <div class="form-group">
+        <label><input  onclick="document.getElementById('gujarati_container').style.display='block'" type="checkbox" name="gujarati" value="gujarati"> Gujarati</label>
+          <div id="gujarati_container" style="display: none; margin-top: 10px;">
+            <label><input type="checkbox" name="guj_read"> Read</label>
+        <label><input type="checkbox" name="guj_write"> Write</label>
+        <label><input type="checkbox" name="guj_speak"> Speak</label>
+          </div>
+
+        <p id="e_gujarati" class="error-msg"></p>
+      </div>
+
+      <!-- Row 2: Hindi -->
+      <div class="form-group">
+        <label><input onclick="document.getElementById('hindi_container').style.display='block'" type="checkbox" name="hindi" value="hindi"> Hindi</label>
+        <div id="hindi_container" style="display: none; margin-top: 10px;">
+          <label><input type="checkbox" name="hin_read"> Read</label>
+        <label><input type="checkbox" name="hin_write"> Write</label>
+        <label><input type="checkbox" name="hin_speak"> Speak</label>
+        </div>
+        <p id="e_hindi" class="error-msg"></p>
+      </div>
+
+      <!-- Row 3: English -->
+      <div class="form-group">
+        <label><input onclick="document.getElementById('eng_container').style.display='block'" type="checkbox" name="english" value="english"> English</label>
+        <div id="eng_container" style="display: none; margin-top: 10px;">
+          <label><input type="checkbox" name="eng_read"> Read</label>
+        <label><input type="checkbox" name="eng_write"> Write</label>
+        <label><input type="checkbox" name="eng_speak"> Speak</label>
+        </div>
+        <p id="e_english" class="error-msg"></p>
+      </div>
+    </fieldset>
+
+
+    <!-- tachnology know -->
+    <fieldset id="technology_know" autocomplete="off">
+      <legend>Technology you Know</legend>
+
+      <!-- Java Group -->
+      <div class="form-group">
+        <label><input name="java" type="checkbox" value="java" onclick="document.getElementById('java_container').style.display='block'"> Java</label>
+       <div id="java_container" style="display: none; margin-top: 10px;">
+         <label><input name="java_level" type="radio" value="beginer"> Beginner</label>
+        <label><input name="java_level" type="radio" value="mideator"> Mediator</label>
+        <label><input name="java_level" type="radio" value="expert"> Expert</label>
+       </div>
+        <p id="e_java" class="error"></p>
+      </div>
+
+      <!-- PHP Group -->
+      <div class="form-group">
+        <label><input name="php" type="checkbox" value="php" onclick="document.getElementsByClassName('php_container')[0].style.display='block'"> PHP</label>
+        <div class="php_container" style="display: none; margin-top: 10px;">
+          <label><input name="php_level" type="radio" value="beginer"> Beginner</label>
+        <label><input name="php_level" type="radio" value="mideator"> Mediator</label>
+        <label><input name="php_level" type="radio" value="expert"> Expert</label>
+        </div>
+        <p id="e_php" class="error"></p>
+      </div>
+
+      <!-- MySQL Group -->
+      <div class="form-group">
+        <label><input onclick="document.getElementById('mysql_container').style.display='block'" name="mysql" type="checkbox" value="mysql"> MySQL</label>
+       <div id="mysql_container" style="display: none; margin-top: 10px;">
+         <label><input name="mysql_level" type="radio" value="beginer"> Beginner</label>
+        <label><input name="mysql_level" type="radio" value="mideator"> Mediator</label>
+        <label><input name="mysql_level" type="radio" value="expert"> Expert</label>
+       </div>
+        <p id="e_mysql" class="error"></p>
+      </div>
+
+      <!-- Laravel Group -->
+     <div class="form-group">
+  <label><input onclick="document.getElementById('larava_container').style.display='block'" name="larava" type="checkbox" value="larava"> Laravel</label>
+  <div id="larava_container" style="display: none; margin-top: 10px;">
+    <label><input name="larava_level" type="radio" value="beginner"> Beginner</label>
+  <label><input name="larava_level" type="radio" value="mediator"> Mediator</label>
+  <label><input name="larava_level" type="radio" value="expert"> Expert</label>
+  </div>
+  
+  <!-- Fixed ID to match your JS variables -->
+  <p id="e_larava" class="error"></p> 
+</div>
+
+    </fieldset>
+
+    <!-- references contect -->
+    <fieldset>
+      <legend>References contect:</legend>
+      <div class="references_contect">
+        <div class="left">
+          <!-- left -->
+          <div class="form-group">
+            <label for="rname">Name:</label>
+            <input style="width: 80px;" name="rname" id="rname" type="text">
+            <p id="e_rname"> </p>
+
+          </div>
+
+        </div>
+        <div class="middel">
+          <!-- middel -->
+          <div class="form-group">
+            <label for="contect_number">contect number:</label>
+            <input style="width: 80px;" name="contect_number" id="contect_number" type="text">
+            <p id="e_contect_number"> </p>
+
+          </div>
+
+
+        </div>
+        <div class="right">
+          <!-- right -->
+          <div class="form-group">
+            <label for="relation">relation:</label>
+            <input style="width: 80px;" name="relation" id="relation" type="text">
+            <p id="e_relation"></p>
+
+          </div>
+
+
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- preferences -->
+    <fieldset>
+      <legend>
+        Preferences:
+      </legend>
+      <div class="preferences">
+        <div class="left">
+          <div class="form-group">
+            <label for="preferd_location">preferd location:</label>
+            <select id="preferd_location" style="vertical-align: top;" name="preferd_location" id="preferd_location"
+              multiple>
+              <!-- left -->
+              <option value="ahmedabad">ahmedabad</option>
+              <option value="surat">surat</option>
+              <option value="bhavanagar">bhavanagar</option>
+              <option value="gandhinagar">gandhinagar</option>
+              <option value="rajkot">rajkot</option>
+
+            </select>
+
+          </div>
+          <p id="e_prefered_location"></p>
+
+        </div>
+        <div class="middel">
+          <!-- middel -->
+          <div class="form-group">
+            <label for="notice_period">Notice period:</label>
+            <input style="width: 80px;" name="notice_period" id="notice_period" type="text">
+            <p id="e_notice_period"> </p>
+
+          </div>
+
+          <div class="form-group">
+            <label for="expected_ctc">Expected CTC:</label>
+            <input style="width: 80px;" name="expected_ctc" id="expected_ctc" type="text">
+            <p id="e_expected_ctc"> </p>
+
+          </div>
+          <div class="form-group">
+            <label for="current_ctc">Current CTC:</label>
+            <input style="width: 80px;" name="current_ctc" id="current_ctc" type="text">
+            <p id="e_current_ctc"></p>
+
+          </div>
+        </div>
+        <div class="right">
+          <!-- right -->
+          <div class="form-group">
+            <label for="department">Department:</label>
+            <select name="department" id="department">
+              <option value="development">development</option>
+              <option value="marketing">marketing</option>
+              <option value="design">desing</option>
+              <option value="testing">testing</option>
+              <option value="QA">QA</option>
+
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+    <div style="text-align: center; margin-top: 10px;" class="btn">
+      <input type="submit">
+      <input type="reset">
+
+    </div>
+  </form>
+  <script src="Job_application_form.js">
+
+  </script>
+</body>
+
+</html>
